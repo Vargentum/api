@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')    
-const noteSchema = mongoose.Schema({
+
+const NoteSchema = mongoose.Schema({
   content : {
     type : String,
     required: true,
@@ -11,4 +12,5 @@ const noteSchema = mongoose.Schema({
 }, {
   timestamps: true,
 })
-module.exports =  mongoose.model('Note' , noteSchema)
+
+module.exports = mongoose.model('Note' , NoteSchema)
