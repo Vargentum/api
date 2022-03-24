@@ -4,7 +4,6 @@ const Note = require('./note')
 const UserSchema = mongoose.Schema({
   username: {
     type: String,
-    required: true,
     index: { unique: true },
   },
   avatar: {
@@ -19,10 +18,20 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  // notes: {
-  //   type: [Note],
-  //   required: true,
-  // },
+  notes: {
+    type: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Note',
+    }],
+    default: [],
+  },
+  favorites: {
+    type: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Note',
+    }],
+    default: [],
+  },
 }, {
   timestamps: true,
 })
